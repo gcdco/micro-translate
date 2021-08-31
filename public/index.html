@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Translate Microservice</h1>
+    <p>
+        This microservice translates text from a <em>source</em> language to English,
+        and from English to a <em>target</em> language.
+    </p>
+    <p>
+        <h4>Translate to English</h4> Uses google api to detect the <em>source</em> language. The POST request 
+        should have the <em>source</em> text sent in the body of the request as "translate". 
+        Make POST request to: "http://flip2.engr.oregonstate.edu:57666/translate/from".
+    </p>
+    <p>
+        <h4>Translate to Language</h4> Takes an <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">iso code</a> for a <em>target</em> language 
+        to translate from English to target language.
+        The POST request should have the <em>source</em> text sent in the body of the request as "translate"
+        and the iso code of the target language as "iso".
+        Make POST request to: "http://flip1.engr.oregonstate.edu:57666/translate/to".
+    </p>
+
+    <label for="select">Translate to English:</label>
+    <form action="http://flip2.engr.oregonstate.edu:57666/translate/from" method="post" id="to-english">
+        <label for="translate">Text</label>
+        <input type="text" id="translate" name="translate" />
+        <button>Submit</button>
+    </form>
+
+    <br />
+    
+    <label for="select">Translate to Language:</label>
+    <form action="http://flip2.engr.oregonstate.edu:57666/translate/to" method="post" id="select-language">
+        <label for="translate">
+            Enter iso code of target language:
+        </label>
+        <select name="iso" id="iso">
+            <option value="ru">Russian (ru)</option>
+            <option value="de">German (de)</option>
+            <option value="hi">Hindi (hi)</option>
+            <option value="fr">French (fr)</option>
+            <option value="es">Spanish (es)</option>
+          </select>
+        <label for="translate">Text</label>
+        <input type="text" id="translate" name="translate" />
+        <button>Submit</button>
+    </form>
+</body>
+</html>
